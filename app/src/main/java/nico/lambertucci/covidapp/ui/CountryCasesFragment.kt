@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -43,7 +44,13 @@ class CountryCasesFragment : Fragment() {
     private fun setupView()= lifecycleScope.launch{
         viewManager = LinearLayoutManager(requireContext())
         viewModel.getCovidByCountry()?.observe(viewLifecycleOwner, Observer {
-           // viewAdapter = CountryItemAdapter(it)
+            viewAdapter = CountryItemAdapter(it)
+            recyclerView = requireView().findViewById<RecyclerView>(R.id.countryView).apply{
+                setHasFixedSize(true)
+                addItemDecoration(DividerItemDecoration(requireContext(),LinearLayoutManager.VERTICAL))
+                layoutManager = viewManager
+                adapter = viewAdapter
+            }
         })
 
     }

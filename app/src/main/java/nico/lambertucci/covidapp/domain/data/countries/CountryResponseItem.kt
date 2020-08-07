@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CountryResponseItem(
     @SerializedName("active")
-    val active: Int?,
+    val active: Int,
     @SerializedName("cases")
     val cases: Int,
     @SerializedName("casesPerOneMillion")
@@ -19,7 +19,7 @@ data class CountryResponseItem(
     @SerializedName("deathsPerOneMillion")
     val deathsPerOneMillion: Int,
     @SerializedName("recovered")
-    val recovered: Int?,
+    val recovered: Int,
     @SerializedName("testsPerOneMillion")
     val testsPerOneMillion: Int,
     @SerializedName("todayCases")
