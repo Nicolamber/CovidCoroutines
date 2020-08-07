@@ -10,10 +10,18 @@
     android:id="@+id/worldCasesFragment"
     android:name="nico.lambertucci.covidapp.ui.WorldCasesFragment"
     android:label="world_cases_fragment"
-    tools:layout="@layout/world_cases_fragment" />
+    tools:layout="@layout/world_cases_fragment" >
+        <action
+            android:id="@+id/action_worldCasesFragment_to_CountryCasesFragment"
+            app:destination="@id/CountryCasesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/CountryCasesFragment"
         android:name="nico.lambertucci.covidapp.ui.CountryCasesFragment"
         android:label="country_cases_fragment"
-        tools:layout="@layout/country_cases_fragment" />
+        tools:layout="@layout/country_cases_fragment" >
+        <action
+            android:id="@+id/action_CountryCasesFragment_to_worldCasesFragment"
+            app:destination="@id/worldCasesFragment" />
+    </fragment>
 </navigation>

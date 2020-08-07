@@ -64,10 +64,15 @@ class WorldCasesFragment : Fragment() {
         }
 
         setupBottomNavigation()
-        getWorldCases()
+        setupView()
     }
 
-    private fun getWorldCases() = lifecycleScope.launch {
+    override fun onResume() {
+        super.onResume()
+        setupView()
+    }
+
+    private fun setupView() = lifecycleScope.launch {
         viewModel.getAllCases()?.observe(viewLifecycleOwner, Observer {
 
             deaths.text = it.deaths.toString()
@@ -96,4 +101,6 @@ class WorldCasesFragment : Fragment() {
             }
         }
     }
+
+
 }
