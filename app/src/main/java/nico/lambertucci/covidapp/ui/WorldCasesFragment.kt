@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.world_cases_fragment.*
 import kotlinx.coroutines.launch
 import nico.lambertucci.covidapp.R
@@ -56,7 +57,12 @@ class WorldCasesFragment : Fragment() {
         ).get(WorldCasesViewModel::class.java)
 
         covidImage.setImageResource(R.drawable.covidlogo)
-        setupToolbar(toolbar)
+
+        toolbar.apply {
+            title = getString(R.string.main)
+            setHasOptionsMenu(true)
+        }
+
         setupBottomNavigation()
         getWorldCases()
     }
@@ -71,26 +77,19 @@ class WorldCasesFragment : Fragment() {
     }
 
 
-    private fun setupToolbar(toolbar: Toolbar) {
-        toolbar.apply {
-            title = getString(R.string.main)
-            setHasOptionsMenu(true)
-        }
-    }
-
     private fun setupBottomNavigation() {
 
-        bottomNavigationView.selectedItemId =
+        bottomCountryNavigationView.selectedItemId =
             R.id.main
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+        bottomCountryNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.main -> {
                     true
                 }
 
                 R.id.countries -> {
-                   // findNavController().navigate(R.id.countryFragment)
+                   findNavController().navigate(R.id.CountryCasesFragment)
                     true
                 }
                 else -> false

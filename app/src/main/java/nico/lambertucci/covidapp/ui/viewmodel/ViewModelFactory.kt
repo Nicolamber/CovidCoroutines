@@ -7,9 +7,12 @@ import java.lang.IllegalArgumentException
 
 class ViewModelFactory(private val repository: CovidRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        when (modelClass) {
+        return when (modelClass) {
             WorldCasesViewModel::class.java -> {
-                return WorldCasesViewModel(this.repository) as T
+                WorldCasesViewModel(this.repository) as T
+            }
+            CountryCasesViewModel::class.java -> {
+                CountryCasesViewModel(this.repository) as T
             }
             else -> throw IllegalArgumentException("ViewModel not found")
         }
