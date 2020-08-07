@@ -6,4 +6,6 @@
     <string name="loading">Cargando...</string>
     <string name="main">Inicio</string>
     <string name="countries">Paises</string>
+    <string name="Title">Covid Stats</string>
+    <string name="myName">Developed By Nicolás Lambertucci</string>
 </resources>
