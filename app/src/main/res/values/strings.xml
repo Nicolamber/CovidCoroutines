@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CovidApp</string>
+    <string name="casos_activos">Casos activos</string>
+    <string name="deathsTitle">Muertes por Covid-19</string>
+    <string name="recovered">Recuperados</string>
+    <string name="loading">Cargando...</string>
+    <string name="main">Inicio</string>
+    <string name="countries">Paises</string>
+</resources>
