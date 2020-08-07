@@ -27,24 +27,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
         app:layout_constraintVertical_bias="0.110000014"
         tools:src="@drawable/covidlogo" />
-
-    <TextView
-        android:id="@+id/casesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/casos_activos"
-        android:textColor="@color/colorIcons"
-        android:textSize="26sp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/covidMainImage"
-        app:layout_constraintVertical_bias="0.100000024" />
 
     <TextView
         android:id="@+id/activeCasesValue"
@@ -53,67 +40,40 @@
         android:text="@string/casos_activos"
         android:textColor="@color/colorIcons"
         android:textSize="20sp"
-        android:gravity="center"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/casesTitle"
-        app:layout_constraintVertical_bias="0.01999998" />
-
-    <TextView
-        android:id="@+id/deathsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/deathsTitle"
-        android:textColor="@color/colorIcons"
-        android:textSize="26sp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activeCasesValue"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/covidMainImage"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <TextView
         android:id="@+id/deathsValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAlignment="viewStart"
         android:text="@string/deathsTitle"
         android:textColor="@color/colorIcons"
         android:textSize="20sp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deathsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/activeCasesValue"
         app:layout_constraintVertical_bias="0.01999998" />
-
-    <TextView
-        android:id="@+id/recoveredTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recovered"
-        android:textColor="@color/colorIcons"
-        android:textSize="26sp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deathsValue"
-        app:layout_constraintVertical_bias="0.100000024" />
 
     <TextView
         android:id="@+id/recoveredValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/recovered"
         android:textColor="@color/colorIcons"
         android:textSize="20sp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recoveredTitle"
+        app:layout_constraintTop_toBottomOf="@+id/deathsValue"
         app:layout_constraintVertical_bias="0.00999999" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -127,6 +87,30 @@
         android:background="@color/colorPrimaryText"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation"/>
+
+    <ProgressBar
+        android:id="@+id/mainProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:textColor="@color/colorIcons"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainProgressBar"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
